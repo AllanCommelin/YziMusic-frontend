@@ -1,0 +1,113 @@
+.profile-banner {
+    position: relative;
+    width: 100%;
+    height: 15vw;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-picture {
+    position: absolute;
+    background-position: center;
+    background-size: cover;
+    width: 12rem;
+    height: 12rem;
+    bottom: calc(-6rem - 5px);
+    border-radius: 50%;
+    border: 10px solid var(--main-color);
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.profile-username {
+    position: absolute;
+    bottom: -5rem;
+    font-size: 3rem;
+    white-space: nowrap;
+    color: var(--white-color);
+}
+
+div.content {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--light-black-color);
+    padding-top: 10rem;
+}
+
+.content > .personnal-infos, .content > .links {
+    width: calc(20% - 4rem);
+    padding: 0 2rem;
+    background-color: var(--black-color);
+    border-radius: 10px;
+}
+
+.content > .main-block {
+    background-color: var(--black-color);
+    width: calc(50% - 2rem);
+    padding: 0 2rem;
+    border-radius: 10px;
+}
+
+h3 {
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--main-color);
+    font-style: italic;
+}
+
+/* ==============================
+    Personal informations block
+ ================================*/
+div.btn-block {
+    padding-top: 1rem;
+}
+
+div.info-block {
+    margin: 1rem 0;
+}
+
+span.label {
+    display: block;
+    font-size: .85rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--white-color);
+}
+
+span.info {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: bold;
+    font-style: normal;
+    color: var(--white-color);
+}
+
+/* =================
+    Links block
+==================== */
+.links {
+    text-align: center;
+}
+
+div.icons-block {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+div.icons-block a {
+    padding: .5rem 0;
+    font-size: 4rem;
+    text-align: center;
+}
+div.icons-block a i {
+    color: var(--white-color);
+}
+div.icons-block a:hover i {
+    color: var(--main-color);
+}
