@@ -1,9 +1,11 @@
 import React from 'react';
 
 const Home =  () => (
-    <div>
-        <p>Page d'accueil de YzyMusic</p>
-    </div>
+    <>
+        <div className="absolute top-0 left-0 right-0 bg-gray-400 h-40 sm:h-96">
+            <span>Image</span>
+        </div>
+    </>
 );
 
 export default Home;

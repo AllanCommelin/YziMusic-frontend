@@ -63,12 +63,14 @@ export default function Layout() {
                     </ul>
                 </div>
             </nav>
-            <div className="container mx-auto bg-ym-light-black mt-20 md:mt-18 py-4 px-10">
-                <Switch>
-                    {routes.map((route) => (
-                        <Route key={route.label} path={route.path} exact component={route.component} />
-                    ))}
-                </Switch>
+            <div className="relative">
+                <div className="container mx-auto bg-ym-light-black mt-20 md:mt-18 py-4 px-10">
+                    <Switch>
+                        {routes.map((route) => (
+                            <Route key={route.label} path={route.path} exact component={route.component} />
+                        ))}
+                    </Switch>
+                </div>
             </div>
             <div className="flex items-center justify-between flex-wrap bg-ym-black p-6 absolute w-full z-10 bottom-0">
                 <p className="text-white">YziMusic</p>

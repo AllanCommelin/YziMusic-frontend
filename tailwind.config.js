@@ -8,7 +8,11 @@ module.exports = {
                 'ym-light-blue': '#A1C6EA',
                 'ym-black': '#0C0C0C',
                 'ym-light-black': '#232323',
-            }
+            },
+            spacing: {
+                '96': '24rem',
+                '144': '36rem',
+            },
         },
         borderColor: ['active']
     },
