@@ -10,6 +10,9 @@ module.exports = {
                 'ym-light-black': '#232323',
             },
             spacing: {
+                '19': '4.85rem',
+                '28': '7.5rem',
+                '72': '18rem',
                 '96': '24rem',
                 '144': '36rem',
             },

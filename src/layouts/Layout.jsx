@@ -33,11 +33,11 @@ const routes = [
 
 export default function Layout() {
     return (
-        <div className="bg-ym-light-black min-h-screen">
+        <div className="bg-ym-light-black min-h-screen relative">
             <nav className="flex items-center justify-between flex-wrap bg-ym-black p-6 fixed w-full z-10 top-0">
                 <div className="flex items-center flex-shrink-0 text-white mr-6">
                     <a className="text-white no-underline hover:text-white hover:no-underline" href="/">
-                        <img className="h-8" src={Logo} alt="YziMusic logo"/>
+                        <img className="h-5" src={Logo} alt="YziMusic logo"/>
                     </a>
                 </div>
 
@@ -64,7 +64,7 @@ export default function Layout() {
                 </div>
             </nav>
             <div className="relative">
-                <div className="container mx-auto bg-ym-light-black mt-20 md:mt-18 py-4 px-10">
+                <div className="container mx-auto bg-ym-light-black mt-19 py-4 px-10 mb-28">
                     <Switch>
                         {routes.map((route) => (
                             <Route key={route.label} path={route.path} exact component={route.component} />
@@ -72,7 +72,7 @@ export default function Layout() {
                     </Switch>
                 </div>
             </div>
-            <div className="flex items-center justify-between flex-wrap bg-ym-black p-6 absolute w-full z-10 bottom-0">
+            <div className="h-20 flex items-center justify-between flex-wrap bg-ym-black p-6 w-full z-10">
                 <p className="text-white">YziMusic</p>
                 <p className="text-white">Allan Commelin</p>
             </div>
