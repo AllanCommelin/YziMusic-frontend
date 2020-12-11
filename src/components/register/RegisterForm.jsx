@@ -28,18 +28,47 @@ const RegisterForm = () => {
     const handleSubmit = () => {
         dispatch({type: "SUBMIT"})
 
+        // TODO : Refacto
+        // Organize data to send to api
+        let musicTypes = [];
+        let profilesTypes = [];
+        state.musicsTypes.forEach( type => {
+            if (type.isChecked) musicTypes = [...musicTypes, type.name]
+        });
+        state.profilesTypes.forEach( type => {
+            if (type.isChecked) profilesTypes = [...profilesTypes, type.name]
+        });
+        dispatch({type: "PROFILES_TYPES_CHANGE", payload: profilesTypes})
+        dispatch({type: "MUSICS_TYPES_CHANGE", payload: musicTypes})
+
         // Simulated network request :)
         setTimeout(() => {
             dispatch({type: "SUBMISSION_RECEIVED"});
         }, 1500);
     }
+
+    const formatData = () => {
+        let formatState = {};
+        function camelToUnderscore(key) {
+            return key.replace( /([A-Z])/g, "_$1" ).toLowerCase();
+        }
+        for(let item in state) {
+            if (state.hasOwnProperty(item)) {
+                formatState[camelToUnderscore(item)] = state[item];
+            }
+        }
+        delete formatState['is_submit_loading']
+        delete formatState['is_submission_received']
+        return formatState
+    }
+
     if (state.isSubmitLoading) return (<div><p>Loading...</p></div>);
     if (state.isSubmissionReceived) {
         return (
             <div className="App">
                 <h1>À envoyer à l'API</h1>
                 <pre style={{ textAlign: "left" }}>
-                  {JSON.stringify(state, null, 2)}
+                  {JSON.stringify(formatData(), null, 2)}
                 </pre>
             </div>
         );

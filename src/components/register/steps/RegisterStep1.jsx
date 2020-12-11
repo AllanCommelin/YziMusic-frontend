@@ -4,7 +4,7 @@ import Input from '../../../components/form/input'
 
 export const RegisterStep1 =  () =>   {
     const {
-        state: { firstName, lastName, email, pseudo, password } ,
+        state: { firstname, lastname, email, username, password } ,
         dispatch
     } = useRegisterFormState();
 
@@ -13,12 +13,12 @@ export const RegisterStep1 =  () =>   {
             <h2 className="text-3xl mb-6 font-bold text-white">Vos informations</h2>
             <form className="flex flex-wrap text-ym-grey">
                 <div className="grid gap-4 grid-cols-2 w-full">
-                    <Input label="Prénom" name="firstName" placeholder="Prénom"
+                    <Input label="Prénom" name="firstname" placeholder="Prénom"
                            handleChange={e => dispatch({ type: "FIRST_NAME_CHANGE", payload: e.target.value })}
-                           value={firstName}/>
-                    <Input label="Nom" name="lastName" placeholder="Nom"
+                           value={firstname}/>
+                    <Input label="Nom" name="lastname" placeholder="Nom"
                            handleChange={e => dispatch({ type: "LAST_NAME_CHANGE", payload: e.target.value })}
-                           value={lastName}/>
+                           value={lastname}/>
                 </div>
                 <div className="w-full my-6">
                     <Input label="Adresse email" name="email" type="email" style="w-full" placeholder="exemple@gmail.com"
@@ -28,7 +28,7 @@ export const RegisterStep1 =  () =>   {
                 <div className="grid gap-4 grid-cols-2 w-full">
                     <Input label="Pseudo" name="pseudo" style="w-1/2" placeholder="Pseudo"
                            handleChange={e => dispatch({ type: "PSEUDO_CHANGE", payload: e.target.value })}
-                           value={pseudo}/>
+                           value={username}/>
                 <Input label="Mot de passe" name="password" type="password" style="w-1/2"
                        handleChange={e => dispatch({ type: "PASSWORD_CHANGE", payload: e.target.value })}
                        value={password}/>

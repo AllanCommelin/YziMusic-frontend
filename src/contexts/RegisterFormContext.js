@@ -5,29 +5,29 @@ import ProfileType from '../constants/ProfileTypes'
 const formReducer = (state, action) => {
     switch (action.type) {
         case "FIRST_NAME_CHANGE":
-            return { ...state, firstName: action.payload };
+            return { ...state, firstname: action.payload };
         case "LAST_NAME_CHANGE":
-            return { ...state, lastName: action.payload };
+            return { ...state, lastname: action.payload };
         case "PSEUDO_CHANGE":
-            return { ...state, pseudo: action.payload };
+            return { ...state, username: action.payload };
         case "EMAIL_CHANGE":
             return { ...state, email: action.payload };
-        case "FACEBOOK_LINKS_CHANGE":
-            return { ...state, facebookLinks: action.payload };
-        case "TWITTER_LINKS_CHANGE":
-            return { ...state, twitterLinks: action.payload };
-        case "INSTAGRAM_LINKS_CHANGE":
-            return { ...state, instagramLinks: action.payload };
-        case "YOUTUBE_LINKS_CHANGE":
-            return { ...state, youtubeLinks: action.payload };
-        case "SPOTIFY_LINKS_CHANGE":
-            return { ...state, spotifyLinks: action.payload };
-        case "DEEZER_LINKS_CHANGE":
-            return { ...state, deezerLinks: action.payload };
-        case "APPLE_MUSIC_LINKS_CHANGE":
-            return { ...state, appleMusicLinks: action.payload };
-        case "SOUNDCLOUD_LINKS_CHANGE":
-            return { ...state, soundcloudLinks: action.payload };
+        case "FACEBOOK_LINK_CHANGE":
+            return { ...state, facebookLink: action.payload };
+        case "TWITTER_LINK_CHANGE":
+            return { ...state, twitterLink: action.payload };
+        case "INSTAGRAM_LINK_CHANGE":
+            return { ...state, instagramLink: action.payload };
+        case "YOUTUBE_LINK_CHANGE":
+            return { ...state, youtubeLink: action.payload };
+        case "SPOTIFY_LINK_CHANGE":
+            return { ...state, spotifyLink: action.payload };
+        case "DEEZER_LINK_CHANGE":
+            return { ...state, deezerLink: action.payload };
+        case "APPLE_MUSIC_LINK_CHANGE":
+            return { ...state, appleMusicLink: action.payload };
+        case "SOUNDCLOUD_LINK_CHANGE":
+            return { ...state, soundcloudLink: action.payload };
         case "PROFILES_TYPES_CHANGE":
             return { ...state, profilesTypes: action.payload };
         case "MUSICS_TYPES_CHANGE":
@@ -52,9 +52,9 @@ const formReducer = (state, action) => {
 const RegisterFormContext = createContext();
 
 const initialState = {
-    firstName: "",
-    lastName: "",
-    pseudo: "",
+    firstname: "",
+    lastname: "",
+    username: "",
     email: "",
     password: "",
 
@@ -64,14 +64,14 @@ const initialState = {
     location: "",
     birthday: "",
 
-    facebookLinks: '',
-    twitterLinks: '',
-    instagramLinks: '',
-    youtubeLinks: '',
-    spotifyLinks: '',
-    deezerLinks: '',
-    appleMusicLinks: '',
-    soundcloudLinks: '',
+    facebookLink: '',
+    twitterLink: '',
+    instagramLink: '',
+    youtubeLink: '',
+    spotifyLink: '',
+    deezerLink: '',
+    appleMusicLink: '',
+    soundcloudLink: '',
 
     isSubmitLoading: false,
     isSubmissionReceived: false
