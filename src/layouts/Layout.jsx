@@ -10,6 +10,7 @@ import Search from '../views/Search'
 import Profile from '../views/Profile'
 import Register from "../views/Register";
 import UserProfile from "../views/UserProfile";
+import Login from "../views/Login";
 
 const menu = [
     {
@@ -26,6 +27,11 @@ const menu = [
         label: "Mon profil",
         path: "/user/me",
         component: Profile,
+    },
+    {
+        label: "Connexion",
+        path: "/login",
+        component: Login,
     },
     {
         label: "Inscription",

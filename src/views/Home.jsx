@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ProfileCard from '../components/ProfileCard'
 import HomeBanner from '../assets/images/home-banner.png';
-import {profilesSelector} from "../store/profiles/profilesSelectors";
-import {useSelector} from "react-redux";
+import API from "../utils/API";
 
 const Home =  () => {
-    const profiles = useSelector(profilesSelector);
+    //const profiles = useSelector(profilesSelector);
     //const dispatch = useDispatch()
+    const [profiles, setProfiles] = useState([])
+    useEffect(() => {
+        API.get('users')
+            .then(res => {
+                console.log('res', res.data)
+                setProfiles(res.data)
+            }).catch(err => {
+                console.log('err', err)
+            })
+    }, []);
     return (
         <>
             <div className="absolute bg-center bg-cover flex items-center justify-center top-0 left-0 right-0 bg-gray-400 h-40 sm:h-72" style={{backgroundImage: `url(${HomeBanner})`}}>

@@ -21,10 +21,10 @@ export const RegisterStep3 =  () =>   {
                            handleChange={e => dispatch({ type: "TWITTER_LINK_CHANGE", payload: e.target.value })}
                            value={twitterLink}/>
                     <Input label="Instagram" name="instagramLink"
-                           handleChange={e => dispatch({ type: "TWITTER_LINK_CHANGE", payload: e.target.value })}
+                           handleChange={e => dispatch({ type: "INSTAGRAM_LINK_CHANGE", payload: e.target.value })}
                            value={instagramLink}/>
                     <Input label="Youtube" name="youtubeLink"
-                           handleChange={e => dispatch({ type: "TWITTER_LINK_CHANGE", payload: e.target.value })}
+                           handleChange={e => dispatch({ type: "YOUTUBE_LINK_CHANGE", payload: e.target.value })}
                            value={youtubeLink}/>
                 </div>
             </form>
