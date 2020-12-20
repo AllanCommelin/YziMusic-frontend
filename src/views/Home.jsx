@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import ProfileCard from '../components/ProfileCard'
 import HomeBanner from '../assets/images/home-banner.png';
+import DefaultBannerProfile from '../assets/images/default-banner.png';
+import DefaultPictureProfile from '../assets/images/default-profile.jpg';
 import API from "../utils/API";
 
 const Home =  () => {

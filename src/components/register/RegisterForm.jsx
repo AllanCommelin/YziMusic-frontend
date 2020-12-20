@@ -32,7 +32,9 @@ const RegisterForm = () => {
     const handleSubmit = async () => {
         dispatch({type: "SUBMIT"})
 
-        // TODO : Refacto
+    // TODO : Refacto
+    // Organize data to send to api
+    const formatData = () => {
         // Organize data to send to api
         let musicTypes = [];
         let profilesTypes = [];
@@ -44,29 +46,19 @@ const RegisterForm = () => {
         });
         dispatch({type: "PROFILES_TYPES_CHANGE", payload: profilesTypes})
         dispatch({type: "MUSICS_TYPES_CHANGE", payload: musicTypes})
+        let formatState = {...state};
+        delete formatState['isSubmitLoading']
+        delete formatState['isSubmissionReceived']
+        return formatState
+    }
 
         await axios.post(getUsersApi(), formatData(), {
             headers: getHeader()
         }).then(res => {
-                console.log('Result', res)
-                dispatch({type: "SUBMISSION_RECEIVED"});
-            })
+            console.log('Result', res)
+            dispatch({type: "SUBMISSION_RECEIVED"});
+        })
             .catch(err => console.log('erreur', err));
-    }
-
-    const formatData = () => {
-        let formatState = {};
-        function camelToUnderscore(key) {
-            return key.replace( /([A-Z])/g, "_$1" ).toLowerCase();
-        }
-        for(let item in state) {
-            if (state.hasOwnProperty(item)) {
-                formatState[camelToUnderscore(item)] = state[item];
-            }
-        }
-        delete formatState['is_submit_loading']
-        delete formatState['is_submission_received']
-        return formatState
     }
 
     if (state.isSubmitLoading) return (<div><p>Loading...</p></div>);

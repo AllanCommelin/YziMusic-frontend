@@ -23,7 +23,7 @@ module.exports = {
                 'ym-light-black': '#232323',
             },
             spacing: {
-                '19': '4.85rem',
+                '19': '4.77rem',
                 '28': '7.5rem',
                 '52': '13rem',
                 '72': '18rem',
