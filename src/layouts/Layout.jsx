@@ -11,8 +11,9 @@ import Profile from '../views/Profile'
 import Register from "../views/Register";
 import UserProfile from "../views/UserProfile";
 import Login from "../views/Login";
+import {logoutUser} from "../actions/auth";
 
-const menu = [
+const baseMenu = [
     {
         label: "Accueil",
         path: "/",
@@ -23,33 +24,52 @@ const menu = [
         path: "/search",
         component: Search
     },
-    {
-        label: "Mon profil",
-        path: "/user/me",
-        component: Profile,
-    },
-    {
-        label: "Connexion",
-        path: "/login",
-        component: Login,
-    },
-    {
-        label: "Inscription",
-        path: "/register",
-        component: Register,
-    },
+
 ];
 
-const routes = [
-    ...menu,
-    {
-        label: "User profile",
-        path: "/profile/:id",
-        component: UserProfile,
-    }
-];
+const isLoggedIn = store.getState().user.isLoggedIn
 
 export default function Layout() {
+    let userMenu = []
+    if(isLoggedIn) {
+        userMenu = [{
+            label: "Mon profil",
+            path: "/user/me",
+            component: Profile,
+        }]
+    } else {
+        userMenu = [{
+            label: "Connexion",
+            path: "/login",
+            component: Login,
+        }, {
+            label: "Inscription",
+            path: "/register",
+            component: Register,
+        }]
+    }
+    const menu = [...baseMenu, ...userMenu]
+    const logout = async (e) => {
+        e.preventDefault()
+        await store.dispatch(logoutUser())
+        window.location.replace("/");
+    }
+    const logoutButton = () => {
+        if (isLoggedIn) {
+            return (<li className="mr-3">
+                <button onClick={e => {logout(e)}} className="inline-block py-2 px-4 text-white no-underline">Déconnexion</button>
+            </li>)
+        }
+    }
+    const routes = [
+        ...menu,
+        {
+            label: "User profile",
+            path: "/profile/:id",
+            component: UserProfile,
+        }
+    ];
+
     return (
         <Provider store={store}>
             <div className="bg-ym-light-black min-h-screen relative">
@@ -79,11 +99,12 @@ export default function Layout() {
                                     </div>
                                 </li>
                             ))}
+                            { logoutButton() }
                         </ul>
                     </div>
                 </nav>
                 <div className="relative">
-                    <div className="container min-h-screen mx-auto bg-ym-light-black mt-19 py-4 px-10 mb-28">
+                    <div className="min-h-screen mx-auto bg-ym-light-black mt-19 py-4 px-10 lg:px- mb-28">
                         <Switch>
                             {routes.map((route) => (
                                 <Route key={route.label} path={route.path} exact component={route.component} />

@@ -1,9 +1,13 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import Input from '../components/form/input'
-import axios from "axios";
-import {getHeader, getLoginApi} from "../helpers/api";
+import { Redirect } from 'react-router-dom';
+import { loginUser } from "../actions/auth";
+import { useSelector, useDispatch } from 'react-redux'
 
 const Login = () => {
+    const dispatch = useDispatch()
+    const userAuth = useSelector(state=>state.user)
+
     const [user, setUser] = useState({
         email: "",
         password:""
@@ -14,13 +18,14 @@ const Login = () => {
         setUser({...user, [name]: value});
     }
 
-    const handleSubmit = function () {
+    const handleSubmit = async function () {
         //todo check data format
-        axios.post(getLoginApi(), user,{
-            headers: getHeader()
-        }).then(res => {
-            localStorage.setItem(process.env.REACT_APP_TOKEN, res.data.token)
-        }).catch(err => console.log('todo gestion erreur', err))
+        await dispatch(loginUser(user))
+            .then()
+            .catch(err => console.log('todo gestion erreur', err));
+    }
+    if (userAuth && userAuth.isLoggedIn) {
+        window.location.replace("/user/me");
     }
     return (
         <div>

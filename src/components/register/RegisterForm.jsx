@@ -34,7 +34,7 @@ const RegisterForm = () => {
 
     // TODO : Refacto
     // Organize data to send to api
-    const formatData = () => {
+    const formatData = async () => {
         // Organize data to send to api
         let musicTypes = [];
         let profilesTypes = [];
