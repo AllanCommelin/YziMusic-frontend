@@ -8,6 +8,7 @@ export function getHeader() {
 }
 
 export function catchError(error) {
+    console.log('CatchError', error)
     if(error.code === 401) {
         if(error.message === 'Expired JWT Token') {
             localStorage.removeItem(process.env.REACT_APP_TOKEN)

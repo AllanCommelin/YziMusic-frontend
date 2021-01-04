@@ -6,7 +6,6 @@ import {getBannerPic, getProfilePic} from "../helpers/profile";
 import ProfileType from "../constants/ProfileTypes";
 import MusicTypes from "../constants/MusicTypes";
 import moment from "moment"
-
 const UserProfile = () => {
     let {id} = useParams()
     let profilesType;

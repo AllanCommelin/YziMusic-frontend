@@ -2,9 +2,9 @@ import React from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
 import {Provider} from 'react-redux'
 import store from '../store'
+//import {useState, useEffect} from 'react';
 
 import Logo from '../assets/images/logo.svg'
-
 import Home from '../views/Home'
 import Search from '../views/Search'
 import Profile from '../views/Profile'
@@ -12,6 +12,7 @@ import Register from "../views/Register";
 import UserProfile from "../views/UserProfile";
 import Login from "../views/Login";
 import {logoutUser} from "../actions/auth";
+import UdpateProfile from "../views/UdpateProfile";
 
 const baseMenu = [
     {
@@ -30,6 +31,26 @@ const baseMenu = [
 const isLoggedIn = store.getState().user.isLoggedIn
 
 export default function Layout() {
+/*    const [isLoading, setLoading] = useState(true);
+
+    function fakeRequest() {
+        return new Promise(resolve => setTimeout(() => resolve(), 2500));
+    }
+
+    useEffect(() => {
+        fakeRequest().then(() => {
+            const el = document.querySelector(".loader-container");
+            if (el) {
+                el.remove();
+                setLoading(!isLoading);
+            }
+        });
+    }, []);
+
+    if (isLoading) {
+        return null;
+    }*/
+
     let userMenu = []
     if(isLoggedIn) {
         userMenu = [{
@@ -67,6 +88,11 @@ export default function Layout() {
             label: "User profile",
             path: "/profile/:id",
             component: UserProfile,
+        },
+        {
+            label: "Update me",
+            path: "/user/me/update",
+            component: UdpateProfile,
         }
     ];
 
