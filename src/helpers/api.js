@@ -1,4 +1,5 @@
 export function getHeader() {
+    // Put the token if it exist
     if (localStorage.getItem(process.env.REACT_APP_TOKEN)) {
         return {
             'authorization': `Bearer ${localStorage.getItem(process.env.REACT_APP_TOKEN)}`,
@@ -8,12 +9,12 @@ export function getHeader() {
 }
 
 export function catchError(error) {
-    console.log('CatchError', error)
     if(error.code === 401) {
-        if(error.message === 'Expired JWT Token') {
-            localStorage.removeItem(process.env.REACT_APP_TOKEN)
-            //TODO Redirect to LOGIN page
-        }
+        // Clear local storage
+        localStorage.removeItem(process.env.REACT_APP_TOKEN)
+        localStorage.removeItem('user')
+        //Redirect to LOGIN page
+        window.location = "/login";
     }
 }
 

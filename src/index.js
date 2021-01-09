@@ -21,10 +21,6 @@ ReactDOM.render(
 );
 const navToggle = document.getElementById('nav-toggle')
 if (navToggle) {
-    navToggle.onclick = function(){
-        document.getElementById("nav-content").classList.toggle("hidden");
-    }
-
     let elements = document.getElementsByClassName('nav-toggle')
     for(let i=0; i<elements.length; i++) {
         elements[i].onclick = function () {

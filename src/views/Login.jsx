@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Input from '../components/form/input'
-import { Redirect } from 'react-router-dom';
 import { loginUser } from "../actions/auth";
 import { useSelector, useDispatch } from 'react-redux'
 

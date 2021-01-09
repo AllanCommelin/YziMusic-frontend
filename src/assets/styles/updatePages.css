@@ -1,0 +1,26 @@
+aside {
+    position: absolute;
+    z-index: 100;
+    width: 50%;
+    background-color: #7149F9;
+    color: white;
+    left:0;
+    top:0;
+    padding: 1rem;
+    min-height: 100vh;
+    height: 100%;
+}
+
+aside li:not(:first-of-type) {
+    cursor: pointer;
+}
+
+.btn-close {
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+}
+
+.btn-close:focus {
+    outline: none;
+}
